@@ -6,16 +6,12 @@ import numpy as np
 import psycopg2
 import google.generativeai as genai
 from dotenv import load_dotenv
-
-# --- 1. INITIAL SETUP AND LOADING ---
 print("--- 🚀 Initializing Full Pipeline ---")
-
-# Load environment variables from .env file
 load_dotenv()
 
 # Configure Gemini
 try:
-    genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+    genai.configure(api_key="AIzaSyASezODA3ee4BovdwaPKQjAKJz8_SOSqCs")
     gemini_model = genai.GenerativeModel("gemini-2.5-pro")
     print("✅ Gemini configured successfully.")
 except Exception as e:
@@ -130,7 +126,7 @@ def get_specialist_for_disease(disease: str) -> str:
 if __name__ == "__main__":
 
     # Define the user's input sentence
-    user_input_sentence = "Hi, I've been having a really tight chest pain that sometimes goes to my left arm, and I feel short of breath and a bit dizzy. My heart is beating really fast too."
+    user_input_sentence = "I am having fever , yellowish skin and cold"
 
     print(f"\n[INPUT] User says: \"{user_input_sentence}\"")
     print("-" * 50)
